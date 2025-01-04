@@ -39,10 +39,10 @@ function Table() {
             className="p-2 border border-white flex justify-around gap-1"
           >
             <button className="w-5">
-              <img src="./public/icons/edit.png" alt="edit png icon" />
+              <img src="/icons/edit.png" alt="edit png icon" />
             </button>
             <button className="w-5">
-              <img src="./public/icons/trashbin.png" alt="trash bin png icon" />
+              <img src="/icons/trashbin.png" alt="trash bin png icon" />
             </button>
           </th>
         </tr>
