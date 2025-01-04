@@ -10,10 +10,14 @@ function Header() {
           <Anchor currentPage={currentPage} href={"/"} pageName={"Home"} />
           <Anchor
             currentPage={currentPage}
-            href={"external"}
+            href={"/external"}
             pageName={"External"}
           />
-          <Anchor currentPage={currentPage} href={"local"} pageName={"Local"} />
+          <Anchor
+            currentPage={currentPage}
+            href={"/local"}
+            pageName={"Local"}
+          />
         </ul>
       </nav>
     </header>

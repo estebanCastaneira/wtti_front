@@ -11,8 +11,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="external" element={<ExternalTable />} />
-        <Route path="local" element={<LocalTable />} />
+        <Route path="/external" element={<ExternalTable />} />
+        <Route path="/local" element={<LocalTable />} />
       </Routes>
     </main>
   )
