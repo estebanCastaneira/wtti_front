@@ -2,30 +2,27 @@ function Table() {
   return (
     <table className="w-full text-white backdrop-blur-[20px] backdrop-saturate-[92%] bg-[#ffffff] bg-opacity-30 border border-white">
       <thead className="bg-blue-900 font-bold text-sm">
-        <tr className="border border-main">
-          <th scope="col" className="p-2 border border-white">
-            Column
+        <tr>
+          <th scope="col" className="p-2 border border-white w-3/12">
+            Title
           </th>
           <th scope="col" className="p-2 border border-white">
-            Column
+            Author
           </th>
           <th scope="col" className="p-2 border border-white">
-            Column
+            Year
           </th>
           <th scope="col" className="p-2 border border-white ">
-            Column
+            Publisher
           </th>
           <th scope="col" className="p-2 border border-white ">
-            Column
+            Subject
           </th>
-          <th scope="col" className="p-2 border border-white ">
-            Column
+          <th scope="col" className="p-2 border border-white w-1/12">
+            Stock
           </th>
-          <th scope="col" className="p-2 border border-white ">
-            Column
-          </th>
-          <th scope="col" className="p-2 border border-white ">
-            Column
+          <th scope="col" className="p-2 border border-white w-1/12">
+            Actions
           </th>
         </tr>
       </thead>
@@ -37,8 +34,17 @@ function Table() {
           <th scope="row" className="p-2 border border-white"></th>
           <th scope="row" className="p-2 border border-white"></th>
           <th scope="row" className="p-2 border border-white"></th>
-          <th scope="row" className="p-2 border border-white"></th>
-          <th scope="row" className="p-2 border border-white"></th>
+          <th
+            scope="row"
+            className="p-2 border border-white flex justify-around gap-1"
+          >
+            <button className="w-5">
+              <img src="./public/icons/edit.png" alt="edit png icon" />
+            </button>
+            <button className="w-5">
+              <img src="./public/icons/trashbin.png" alt="trash bin png icon" />
+            </button>
+          </th>
         </tr>
       </tbody>
     </table>

@@ -7,13 +7,12 @@ function ExternalTable() {
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
+  const [error, setError] = useState("") //TODO
 
   useEffect(() => {
     if (searchQuery) {
       setLoading(true)
       setError("")
-
       async function fetchBooks() {
         try {
           const response = await axios.get(
