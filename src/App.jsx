@@ -7,7 +7,7 @@ import "./App.css"
 
 function App() {
   return (
-    <main className="bg-gradient-to-b from-blue-800 via-blue-600 to-blue-300 h-screen">
+    <main className="bg-gradient-to-b from-blue-800 via-blue-600 to-blue-400 min-h-screen tracking-wider">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
