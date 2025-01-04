@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import ExternalTable from "./components/ExternalTable"
+import ExternalSearch from "./components/ExternalSearch"
 import Header from "./components/Header"
 import Home from "./components/Home"
 import LocalTable from "./components/LocalTable"
@@ -11,8 +11,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/external" element={<ExternalTable />} />
-        <Route path="/local" element={<LocalTable />} />
+        <Route path="/external" element={<ExternalSearch />} />
+        <Route path="/inventory" element={<LocalTable />} />
       </Routes>
     </main>
   )

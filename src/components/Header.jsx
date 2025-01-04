@@ -11,12 +11,12 @@ function Header() {
           <Anchor
             currentPage={currentPage}
             href={"/external"}
-            pageName={"External"}
+            pageName={"Search Online Books"}
           />
           <Anchor
             currentPage={currentPage}
-            href={"/local"}
-            pageName={"Local"}
+            href={"/inventory"}
+            pageName={"Internal Book Inventory"}
           />
         </ul>
       </nav>
