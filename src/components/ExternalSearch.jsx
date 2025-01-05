@@ -20,7 +20,7 @@ function ExternalSearch() {
       async function fetchBooks() {
         try {
           const response = await axios.get(
-            `https://openlibrary.org/search.json?q=${searchQuery}`
+            `${import.meta.env.VITE_API_URL}${searchQuery}`
           )
           dispatch(storeApiData(response.data.docs))
         } catch (err) {
