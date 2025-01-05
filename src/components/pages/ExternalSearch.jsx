@@ -11,12 +11,11 @@ function ExternalSearch() {
   const apiData = useSelector((state) => state.apiData)
   const [searchQuery, setSearchQuery] = useState("")
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("") //TODO
 
   useEffect(() => {
     if (searchQuery) {
       setLoading(true)
-      setError("")
+
       async function fetchBooks() {
         try {
           const response = await axios.get(
@@ -24,7 +23,7 @@ function ExternalSearch() {
           )
           dispatch(storeApiData(response.data.docs))
         } catch (err) {
-          setError(err)
+          console.log(err)
         } finally {
           setLoading(false)
         }
