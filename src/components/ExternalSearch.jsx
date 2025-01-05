@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import ExternalTable from "./ExternalTable"
 import SearchBar from "./SearchBar"
+import LoadingModal from "./modals/LoadingModal"
 
 function ExternalSearch() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -41,6 +42,7 @@ function ExternalSearch() {
         <SearchBar onSearch={handleSearch} />
         <ExternalTable data={searchResults} />
       </div>
+      <LoadingModal isLoading={loading} />
     </div>
   )
 }
