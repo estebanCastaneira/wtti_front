@@ -38,10 +38,10 @@ function Table() {
             scope="row"
             className="p-2 border border-white flex justify-around gap-1"
           >
-            <button className="w-5">
+            <button className="w-5 relative active:left-1 active:top-1">
               <img src="/icons/edit.png" alt="edit png icon" />
             </button>
-            <button className="w-5">
+            <button className="w-5 relative active:left-1 active:top-1">
               <img src="/icons/trashbin.png" alt="trash bin png icon" />
             </button>
           </th>

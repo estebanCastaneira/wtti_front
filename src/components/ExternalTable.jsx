@@ -42,7 +42,7 @@ function ExternalTable({ data }) {
             <th scope="row" className="p-2 border border-white">
               {book.subject ? book.subject[0] : "..."}
             </th>
-            <th scope="row" className="p-2 border border-white">
+            <th scope="row" className="p-2 border border-white ">
               <button className="w-5 relative active:left-1 active:top-1">
                 <img src="/icons/plus.png" alt="plus png button" />
               </button>
