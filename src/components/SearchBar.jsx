@@ -34,7 +34,7 @@ function SearchBar({ onSearch }) {
         <button
           type="submit"
           name="clear"
-          className=" bg-blue-900 border border-blue-300 p-2 rounded-2xl hover:bg-red-500 relative active:top-1 active:left-1"
+          className=" bg-blue-900 border border-blue-300 p-2 rounded-2xl hover:bg-red-600 relative active:top-1 active:left-1"
           onClick={() => {
             setQuery(""), dispatch(clearApiData())
           }}

@@ -27,7 +27,7 @@ function AddBookModal({ openModal, setOpenModal, book }) {
               Yes
             </button>
             <button
-              className="p-2  bg-blue-900 border border-blue-300 rounded-xl relative active:top-1 active:left-1 hover:bg-red-500"
+              className="p-2  bg-blue-900 border border-blue-300 rounded-xl relative active:top-1 active:left-1 hover:bg-red-600"
               onClick={() => setOpenModal(!openModal)}
             >
               No
