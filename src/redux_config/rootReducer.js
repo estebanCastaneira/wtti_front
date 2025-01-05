@@ -1,9 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit"
-import apiTableReducer from "./apiTableSlice"
+import apiDataReducer from "./apiDataSlice"
 import localDataReducer from "./localDataSlice"
 
 const rootReducer = combineReducers({
-  apiTable: apiTableReducer,
+  apiData: apiDataReducer,
   localData: localDataReducer,
 })
 
