@@ -14,18 +14,30 @@ const localDataSlice = createSlice({
         author_name,
         first_publish_year,
         publisher,
-        subjetc,
+        subject,
       } = action.payload
-      const book = {
+
+      const existingBookIndex = state.findIndex(
+        (book) => book._version_ === _version_
+      )
+
+      if (existingBookIndex !== -1) {
+        const updatedState = [...state]
+        updatedState[existingBookIndex].stock += 1
+        return updatedState
+      }
+
+      const newBook = {
         _version_,
         title,
         author_name,
         first_publish_year,
-        publisher,
-        subjetc,
+        publisher: publisher[0],
+        subject,
         stock: 1,
       }
-      return [...state, book]
+
+      return [...state, newBook]
     },
     updateLocalData(state, action) {
       const {
