@@ -1,6 +1,6 @@
-function Table() {
+function Table({ data }) {
   return (
-    <table className="w-full text-white backdrop-blur-[20px] backdrop-saturate-[92%] bg-[#ffffff] bg-opacity-30 border border-white">
+    <table className="w-full  backdrop-blur-[20px] backdrop-saturate-[92%] bg-[#ffffff] bg-opacity-30 border border-white">
       <thead className="bg-blue-900 font-bold text-sm">
         <tr>
           <th scope="col" className="p-2 border border-white w-3/12">
@@ -27,17 +27,44 @@ function Table() {
         </tr>
       </thead>
       <tbody className="font-light text-sm">
-        <tr className="">
+        {data.map((book, index) => (
+          <tr key={index} className="">
+            <th scope="row" className="p-2 border border-white">
+              {book.title}
+            </th>
+            <th scope="row" className="p-2 border border-white">
+              {book.author_name}
+            </th>
+            <th scope="row" className="p-2 border border-white">
+              {book.first_publish_year}
+            </th>
+            <th scope="row" className="p-2 border border-white">
+              {book.publisher}
+            </th>
+            <th scope="row" className="p-2 border border-white">
+              {book.subject}
+            </th>
+            <th scope="row" className="p-2 border border-white">
+              {book.stock}
+            </th>
+            <th scope="row" className="p-2 border border-white">
+              <button className="w-5 relative mr-3 active:left-1 active:top-1">
+                <img src="/icons/edit.png" alt="edit png icon" />
+              </button>
+              <button className="w-5 relative active:left-1 active:top-1">
+                <img src="/icons/trashbin.png" alt="trash bin png icon" />
+              </button>
+            </th>
+          </tr>
+        ))}
+        <tr className={`${data.length > 0 && "hidden"}`}>
           <th scope="row" className="p-2 border border-white"></th>
           <th scope="row" className="p-2 border border-white"></th>
           <th scope="row" className="p-2 border border-white"></th>
           <th scope="row" className="p-2 border border-white"></th>
           <th scope="row" className="p-2 border border-white"></th>
           <th scope="row" className="p-2 border border-white"></th>
-          <th
-            scope="row"
-            className="p-2 border border-white flex justify-around gap-1"
-          >
+          <th scope="row" className="p-2 border border-white">
             <button className="w-5 relative active:left-1 active:top-1">
               <img src="/icons/edit.png" alt="edit png icon" />
             </button>
