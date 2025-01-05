@@ -46,7 +46,7 @@ const localDataSlice = createSlice({
         author_name,
         first_publish_year,
         publisher,
-        subjetc,
+        subject,
         stock,
       } = action.payload
       const bookUpdate = {
@@ -55,7 +55,7 @@ const localDataSlice = createSlice({
         author_name,
         first_publish_year,
         publisher,
-        subjetc,
+        subject,
         stock,
       }
       return state.map((book) =>
