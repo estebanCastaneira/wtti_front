@@ -19,10 +19,10 @@ function SearchBar({ onSearch }) {
       <form onSubmit={handleSubmit} className="flex gap-10">
         <input
           type="text"
-          placeholder="Search for a book title..."
+          placeholder="🔍 Search for a book or author..."
           value={query}
           onChange={handleChange}
-          className="p-2 rounded-2xl text-black"
+          className="p-2 rounded-2xl text-black w-80"
         />
         <button
           type="submit"
