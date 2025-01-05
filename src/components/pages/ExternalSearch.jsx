@@ -1,10 +1,10 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { storeApiData } from "../redux_config/apiDataSlice"
+import { storeApiData } from "../../redux_config/apiDataSlice"
 import { useDispatch, useSelector } from "react-redux"
-import ExternalTable from "./ExternalTable"
-import SearchBar from "./SearchBar"
-import LoadingModal from "./modals/LoadingModal"
+import ExternalTable from "../ExternalTable"
+import SearchBar from "../SearchBar"
+import LoadingModal from "../modals/LoadingModal"
 
 function ExternalSearch() {
   const dispatch = useDispatch()

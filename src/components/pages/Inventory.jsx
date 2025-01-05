@@ -1,9 +1,9 @@
-import Table from "./Table"
+import InventoryTable from "../InventoryTable"
 import { useSelector } from "react-redux"
 
 function LocalTable() {
   const localData = useSelector((state) => state.localData)
-  console.log(localData)
+
   return (
     <div className="flex justify-center">
       <div className="container my-10">
@@ -12,7 +12,7 @@ function LocalTable() {
             Create
           </button>
         </div>
-        <Table data={localData} />
+        <InventoryTable data={localData} />
       </div>
     </div>
   )

@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom"
-import ExternalSearch from "./components/ExternalSearch"
+import ExternalSearch from "./components/pages/ExternalSearch"
 import Header from "./components/Header"
-import Home from "./components/Home"
-import LocalTable from "./components/LocalTable"
+import Home from "./components/pages/Home"
+import Inventory from "./components/pages/Inventory"
 import "./App.css"
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/external" element={<ExternalSearch />} />
-        <Route path="/inventory" element={<LocalTable />} />
+        <Route path="/inventory" element={<Inventory />} />
       </Routes>
     </main>
   )

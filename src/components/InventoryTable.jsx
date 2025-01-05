@@ -1,4 +1,4 @@
-function Table({ data }) {
+function InventoryTable({ data }) {
   return (
     <table className="w-full  backdrop-blur-[20px] backdrop-saturate-[92%] bg-[#ffffff] bg-opacity-30 border border-white">
       <thead className="bg-blue-900 font-bold text-sm">
@@ -78,4 +78,4 @@ function Table({ data }) {
   )
 }
 
-export default Table
+export default InventoryTable
