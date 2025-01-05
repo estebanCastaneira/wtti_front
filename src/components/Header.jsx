@@ -4,7 +4,7 @@ function Header() {
   const { pathname: currentPage } = useLocation()
 
   return (
-    <header className="text-white tracking-widest bg-blue-900 flex justify-center p-5 ">
+    <header className=" tracking-widest bg-blue-900 flex justify-center p-5 ">
       <nav className="container">
         <ul className="flex gap-10">
           <Anchor currentPage={currentPage} href={"/"} pageName={"Home"} />
