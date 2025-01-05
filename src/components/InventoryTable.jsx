@@ -1,11 +1,17 @@
 import UpdateForm from "./forms/UpdateForm"
+import DeleteBookModal from "./modals/DeleteBookModal"
 import { useState } from "react"
 
 function InventoryTable({ data }) {
   const [toUpdate, setToUpdate] = useState(false)
+  const [toDelete, setToDelete] = useState(false)
   const [book, setBook] = useState("")
   const handleOnClickUpdate = (book) => {
     setToUpdate(!toUpdate)
+    setBook(book)
+  }
+  const handleOnClickDelete = (book) => {
+    setToDelete(!toDelete)
     setBook(book)
   }
   return (
@@ -64,7 +70,10 @@ function InventoryTable({ data }) {
                 >
                   <img src="/icons/edit.png" alt="edit png icon" />
                 </button>
-                <button className="w-5 relative active:left-1 active:top-1">
+                <button
+                  className="w-5 relative active:left-1 active:top-1"
+                  onClick={() => handleOnClickDelete(book)}
+                >
                   <img src="/icons/trashbin.png" alt="trash bin png icon" />
                 </button>
               </th>
@@ -89,6 +98,7 @@ function InventoryTable({ data }) {
         </tbody>
       </table>
       <UpdateForm open={toUpdate} setToUpdate={setToUpdate} book={book} />
+      <DeleteBookModal open={toDelete} setToDelete={setToDelete} book={book} />
     </>
   )
 }

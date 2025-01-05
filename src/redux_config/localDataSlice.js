@@ -15,6 +15,7 @@ const localDataSlice = createSlice({
         first_publish_year,
         publisher,
         subject,
+        stock,
       } = action.payload
 
       const existingBookIndex = state.findIndex(
@@ -32,9 +33,9 @@ const localDataSlice = createSlice({
         title,
         author_name,
         first_publish_year,
-        publisher: publisher[0],
-        subject,
-        stock: 1,
+        publisher: Array.isArray(publisher) ? publisher[0] : "...",
+        subject: Array.isArray(subject) ? subject[0] : "...",
+        stock: stock || 1,
       }
 
       return [...state, newBook]
@@ -62,7 +63,7 @@ const localDataSlice = createSlice({
       )
     },
     deleteLocalData(state, action) {
-      return state.filter((book) => book.id !== action.payload)
+      return state.filter((book) => book._version_ !== action.payload)
     },
   },
 })

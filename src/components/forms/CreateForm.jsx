@@ -2,12 +2,13 @@ import { storeLocalData } from "../../redux_config/localDataSlice"
 import { useDispatch } from "react-redux"
 import { useForm } from "react-hook-form"
 function CreateForm({ open, setToCreate }) {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, reset } = useForm()
   const dispatch = useDispatch()
 
   const onSubmit = (data) => {
     dispatch(storeLocalData(data))
     setToCreate(!open)
+    reset()
   }
 
   return (
