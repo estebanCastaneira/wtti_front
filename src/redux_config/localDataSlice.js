@@ -50,7 +50,6 @@ const localDataSlice = createSlice({
         stock,
       } = action.payload
       const bookUpdate = {
-        _version_,
         title,
         author_name,
         first_publish_year,
