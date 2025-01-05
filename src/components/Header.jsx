@@ -13,7 +13,7 @@ function Header() {
               <img
                 src="/icons/book.png"
                 alt="book png icon image"
-                className="w-10 align-middle self-center block h-auto"
+                className="w-10 align-middle self-center block h-auto center relative bottom-2"
               />
             </Link>
           </div>
