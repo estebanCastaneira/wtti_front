@@ -10,7 +10,6 @@ function DeleteBookModal({ open, setToDelete, book }) {
     dispatch(setIsLoading(true))
     try {
       const response = await deleteBook(book._version_)
-      console.log(response)
       dispatch(deleteLocalData(book._version_))
       setToDelete(!open)
     } catch (error) {
