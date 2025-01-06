@@ -6,7 +6,7 @@ const localDataSlice = createSlice({
   reducers: {
     setLocalData(state, action) {
       if (!action.payload) return
-      console.log(action.payload)
+
       return [...action.payload]
     },
     storeLocalData(state, action) {

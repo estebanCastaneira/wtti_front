@@ -10,7 +10,6 @@ function InventoryTable({ data }) {
     setToUpdate(!toUpdate)
     setBook(book)
   }
-  console.log(data)
   const handleOnClickDelete = (book) => {
     setToDelete(!toDelete)
     setBook(book)
