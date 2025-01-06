@@ -31,7 +31,7 @@ function UpdateForm({ open, setToUpdate, book }) {
     } catch (error) {
       console.error("Error updating book:", error)
       dispatch(
-        setError("An error occurred while updating the book to the inventory.")
+        setError("An error occurred while updating the book in the inventory.")
       )
     } finally {
       dispatch(setIsLoading(false))
