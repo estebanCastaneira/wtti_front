@@ -1,14 +1,23 @@
 import { storeLocalData } from "../../redux_config/localDataSlice"
 import { useDispatch } from "react-redux"
 import { useForm } from "react-hook-form"
+import { createBook } from "../../funcitons/api"
+
 function CreateForm({ open, setToCreate }) {
   const { register, handleSubmit, reset } = useForm()
   const dispatch = useDispatch()
 
-  const onSubmit = (data) => {
-    dispatch(storeLocalData(data))
-    setToCreate(!open)
-    reset()
+  const onSubmit = async (data) => {
+    try {
+      const response = await createBook(data)
+
+      dispatch(storeLocalData(response))
+
+      setToCreate(!open)
+      reset()
+    } catch (error) {
+      console.error("Error while creating book:", error)
+    }
   }
 
   return (

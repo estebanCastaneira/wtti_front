@@ -2,9 +2,10 @@ import { updateLocalData } from "../../redux_config/localDataSlice"
 import { useDispatch } from "react-redux"
 import { useForm } from "react-hook-form"
 import { useEffect } from "react"
+import { updateBook } from "../../funcitons/api"
 function UpdateForm({ open, setToUpdate, book }) {
   const { register, handleSubmit, setValue } = useForm()
-
+  const dispatch = useDispatch()
   useEffect(() => {
     if (book) {
       setValue("_version_", book._version_)
@@ -16,11 +17,16 @@ function UpdateForm({ open, setToUpdate, book }) {
       setValue("stock", book.stock)
     }
   }, [book, setValue])
-  const dispatch = useDispatch()
 
-  const onSubmit = (data) => {
-    dispatch(updateLocalData(data))
-    setToUpdate(!open)
+  const onSubmit = async (data) => {
+    try {
+      const updatedBook = await updateBook(data)
+      console.log(updatedBook)
+      dispatch(updateLocalData(updatedBook))
+      setToUpdate(!open)
+    } catch (error) {
+      console.error("Error updating book:", error)
+    }
   }
 
   return (
@@ -140,7 +146,9 @@ function UpdateForm({ open, setToUpdate, book }) {
               </button>
               <button
                 className="p-2 text-white bg-blue-900 border border-blue-300 rounded-xl relative active:top-1 active:left-1 hover:bg-red-600"
-                onClick={() => setToUpdate(!open)}
+                onClick={(e) => {
+                  e.preventDefault(), setToUpdate(!open)
+                }}
               >
                 Close
               </button>

@@ -31,13 +31,22 @@ const localDataSlice = createSlice({
         return
       }
 
+      const newPublisher =
+        Array.isArray(publisher) && publisher.length > 0
+          ? publisher[0]
+          : publisher || ""
+      const newSubject =
+        Array.isArray(subject) && subject.length > 0
+          ? subject[0]
+          : subject || ""
+
       const newBook = {
         _version_: version,
         title,
         author_name,
         first_publish_year,
-        publisher: Array.isArray(publisher) ? publisher[0] : "...",
-        subject: Array.isArray(subject) ? subject[0] : "...",
+        publisher: newPublisher,
+        subject: newSubject,
         stock: stock || 1,
       }
 
@@ -53,16 +62,19 @@ const localDataSlice = createSlice({
         subject,
         stock,
       } = action.payload
-      const bookUpdate = {
-        title,
-        author_name,
-        first_publish_year,
-        publisher,
-        subject,
-        stock,
-      }
+
       return state.map((book) =>
-        book._version_ !== _version_ ? book : bookUpdate
+        book._version_ !== _version_
+          ? book
+          : {
+              ...book,
+              title,
+              author_name,
+              first_publish_year,
+              publisher,
+              subject,
+              stock,
+            }
       )
     },
     deleteLocalData(state, action) {

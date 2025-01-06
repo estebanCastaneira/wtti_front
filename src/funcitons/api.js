@@ -9,14 +9,36 @@ export const getBooks = async () => {
     throw error
   }
 }
+export const createBook = async (bookData) => {
+  try {
+    const response = await axios.post(
+      `${import.meta.env.VITE_BASE_URL}`,
+      bookData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    return response.data
+  } catch (error) {
+    console.error("Error creating book:", error)
+    throw error
+  }
+}
 
-export const updateBook = async (book) => {
+export const updateBook = async (bookData) => {
   try {
     const response = await axios.put(
-      `${import.meta.env.VITE_BASE_URL}/${book._version_}`,
-      book
+      `${import.meta.env.VITE_BASE_URL}`,
+      bookData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     )
-    return response.data // Devuelve la respuesta del backend si es necesario
+    return response.data
   } catch (error) {
     console.error("Error updating book:", error)
     throw error
