@@ -44,3 +44,20 @@ export const updateBook = async (bookData) => {
     throw error
   }
 }
+
+export const deleteBook = async (version) => {
+  try {
+    const response = await axios.delete(
+      `${import.meta.env.VITE_BASE_URL}/${version}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    return response.data
+  } catch (error) {
+    console.error("Error deleting book:", error)
+    throw error
+  }
+}

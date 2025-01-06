@@ -1,11 +1,18 @@
 import { useDispatch } from "react-redux"
 import { deleteLocalData } from "../../redux_config/localDataSlice"
+import { deleteBook } from "../../funcitons/api"
 
 function DeleteBookModal({ open, setToDelete, book }) {
   const dispatch = useDispatch()
-  const handleOnClick = () => {
-    dispatch(deleteLocalData(book._version_))
-    setToDelete(!open)
+  const handleOnClick = async () => {
+    try {
+      const response = await deleteBook(book._version_)
+      console.log(response)
+      dispatch(deleteLocalData(book._version_))
+      setToDelete(!open)
+    } catch (error) {
+      console.error("Error deleting book:", error)
+    }
   }
   return (
     open && (
