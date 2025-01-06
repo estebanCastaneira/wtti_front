@@ -75,7 +75,7 @@ function UpdateForm({ open, setToUpdate, book }) {
               <div className="flex flex-col gap-3 w-4/12">
                 <label htmlFor="first_publish_year">Published Year</label>
                 <input
-                  id="first_published_year"
+                  id="first_publish_year"
                   {...register("first_publish_year", {
                     required: "Published year is required",
                     min: 0,
