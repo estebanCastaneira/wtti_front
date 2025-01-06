@@ -1,20 +1,19 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { storeApiData } from "../../redux_config/apiDataSlice"
+import { setIsLoading } from "../../redux_config/uiSlice"
 import { useDispatch, useSelector } from "react-redux"
 import ExternalTable from "../ExternalTable"
 import SearchBar from "../SearchBar"
-import LoadingModal from "../modals/LoadingModal"
 
 function ExternalSearch() {
   const dispatch = useDispatch()
   const apiData = useSelector((state) => state.apiData)
   const [searchQuery, setSearchQuery] = useState("")
-  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (searchQuery) {
-      setLoading(true)
+      dispatch(setIsLoading(true))
 
       async function fetchBooks() {
         try {
@@ -25,7 +24,7 @@ function ExternalSearch() {
         } catch (err) {
           console.log(err)
         } finally {
-          setLoading(false)
+          dispatch(setIsLoading(false))
         }
       }
 
@@ -43,7 +42,6 @@ function ExternalSearch() {
         <SearchBar onSearch={handleSearch} />
         <ExternalTable data={apiData} />
       </div>
-      <LoadingModal isLoading={loading} />
     </div>
   )
 }

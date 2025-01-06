@@ -2,12 +2,13 @@ import { storeLocalData } from "../../redux_config/localDataSlice"
 import { useDispatch } from "react-redux"
 import { useForm } from "react-hook-form"
 import { createBook } from "../../funcitons/api"
-
+import { setIsLoading } from "../../redux_config/uiSlice"
 function CreateForm({ open, setToCreate }) {
   const { register, handleSubmit, reset } = useForm()
   const dispatch = useDispatch()
 
   const onSubmit = async (data) => {
+    dispatch(setIsLoading(true))
     try {
       const response = await createBook(data)
 
@@ -17,12 +18,14 @@ function CreateForm({ open, setToCreate }) {
       reset()
     } catch (error) {
       console.error("Error while creating book:", error)
+    } finally {
+      dispatch(setIsLoading(false))
     }
   }
 
   return (
     open && (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center text-black">
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center text-black z-10">
         <div className="bg-white p-10 rounded-lg w-full m-20">
           <form
             className="p-8 flex flex-col gap-3 rounded-lg"

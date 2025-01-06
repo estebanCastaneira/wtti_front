@@ -7,6 +7,7 @@ import ExternalSearch from "./components/pages/ExternalSearch"
 import Header from "./components/Header"
 import Home from "./components/pages/Home"
 import Inventory from "./components/pages/Inventory"
+import LoadingModal from "./components/modals/LoadingModal"
 import "./App.css"
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/external" element={<ExternalSearch />} />
         <Route path="/inventory" element={<Inventory />} />
       </Routes>
+      <LoadingModal />
     </main>
   )
 }

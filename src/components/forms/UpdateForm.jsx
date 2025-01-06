@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux"
 import { useForm } from "react-hook-form"
 import { useEffect } from "react"
 import { updateBook } from "../../funcitons/api"
+import { setIsLoading } from "../../redux_config/uiSlice"
 function UpdateForm({ open, setToUpdate, book }) {
   const { register, handleSubmit, setValue } = useForm()
   const dispatch = useDispatch()
+
   useEffect(() => {
     if (book) {
       setValue("_version_", book._version_)
@@ -19,12 +21,15 @@ function UpdateForm({ open, setToUpdate, book }) {
   }, [book, setValue])
 
   const onSubmit = async (data) => {
+    dispatch(setIsLoading(true))
     try {
       const updatedBook = await updateBook(data)
       dispatch(updateLocalData(updatedBook))
       setToUpdate(!open)
     } catch (error) {
       console.error("Error updating book:", error)
+    } finally {
+      dispatch(setIsLoading(false))
     }
   }
 
