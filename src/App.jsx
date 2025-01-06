@@ -9,6 +9,7 @@ import Home from "./components/pages/Home"
 import Inventory from "./components/pages/Inventory"
 import LoadingModal from "./components/modals/LoadingModal"
 import "./App.css"
+import InformationModal from "./components/modals/InformationModal"
 
 function App() {
   const dispatch = useDispatch()
@@ -35,6 +36,7 @@ function App() {
         <Route path="/inventory" element={<Inventory />} />
       </Routes>
       <LoadingModal />
+      <InformationModal />
     </main>
   )
 }

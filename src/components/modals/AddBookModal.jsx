@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { updateApiData } from "../../redux_config/apiDataSlice"
 import { storeLocalData } from "../../redux_config/localDataSlice"
-import { setIsLoading } from "../../redux_config/uiSlice"
+import { setError, setIsLoading, setSuccess } from "../../redux_config/uiSlice"
 import { createBook } from "../../funcitons/api"
 
 function AddBookModal({ openModal, setOpenModal, book }) {
@@ -26,10 +26,16 @@ function AddBookModal({ openModal, setOpenModal, book }) {
 
       dispatch(storeLocalData(response))
       dispatch(updateApiData(book._version_))
+      dispatch(
+        setSuccess("The book has been successfully added to the inventory!")
+      )
 
       setOpenModal(!openModal)
     } catch (error) {
       console.error("Error while creating book:", error)
+      dispatch(
+        setError("An error occurred while adding the book to the inventory.")
+      )
     } finally {
       dispatch(setIsLoading(false))
     }

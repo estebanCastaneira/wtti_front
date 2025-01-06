@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { useForm } from "react-hook-form"
 import { createBook } from "../../funcitons/api"
 import { setIsLoading } from "../../redux_config/uiSlice"
+import { setSuccess, setError } from "../../redux_config/uiSlice"
 function CreateForm({ open, setToCreate }) {
   const { register, handleSubmit, reset } = useForm()
   const dispatch = useDispatch()
@@ -13,11 +14,16 @@ function CreateForm({ open, setToCreate }) {
       const response = await createBook(data)
 
       dispatch(storeLocalData(response))
-
+      dispatch(
+        setSuccess("The book has been successfully added to the inventory!")
+      )
       setToCreate(!open)
       reset()
     } catch (error) {
       console.error("Error while creating book:", error)
+      dispatch(
+        setError("An error occurred while adding the book to the inventory.")
+      )
     } finally {
       dispatch(setIsLoading(false))
     }
