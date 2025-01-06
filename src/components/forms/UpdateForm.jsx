@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import { useEffect } from "react"
 import { updateBook } from "../../funcitons/api"
 import { setIsLoading } from "../../redux_config/uiSlice"
+import { setSuccess, setError } from "../../redux_config/uiSlice"
 function UpdateForm({ open, setToUpdate, book }) {
   const { register, handleSubmit, setValue } = useForm()
   const dispatch = useDispatch()
@@ -25,9 +26,13 @@ function UpdateForm({ open, setToUpdate, book }) {
     try {
       const updatedBook = await updateBook(data)
       dispatch(updateLocalData(updatedBook))
+      dispatch(setSuccess("The book has been successfully updated!"))
       setToUpdate(!open)
     } catch (error) {
       console.error("Error updating book:", error)
+      dispatch(
+        setError("An error occurred while updating the book to the inventory.")
+      )
     } finally {
       dispatch(setIsLoading(false))
     }
