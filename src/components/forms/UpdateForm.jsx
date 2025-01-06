@@ -21,7 +21,6 @@ function UpdateForm({ open, setToUpdate, book }) {
   const onSubmit = async (data) => {
     try {
       const updatedBook = await updateBook(data)
-      console.log(updatedBook)
       dispatch(updateLocalData(updatedBook))
       setToUpdate(!open)
     } catch (error) {

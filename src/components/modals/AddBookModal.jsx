@@ -1,14 +1,36 @@
 import { useDispatch } from "react-redux"
 import { updateApiData } from "../../redux_config/apiDataSlice"
 import { storeLocalData } from "../../redux_config/localDataSlice"
+import { createBook } from "../../funcitons/api"
 
 function AddBookModal({ openModal, setOpenModal, book }) {
   const dispatch = useDispatch()
-  const handleOnClick = () => {
-    dispatch(updateApiData(book._version_))
-    dispatch(storeLocalData(book))
-    setOpenModal(!openModal)
+  const handleOnClick = async () => {
+    try {
+      const processedBook = {
+        _version_: book._version_,
+        title: book.title,
+        author_name: book.author_name,
+        first_publish_year: book.first_publish_year,
+        publisher: Array.isArray(book.publisher)
+          ? book.publisher[0]
+          : book.publisher || "...",
+        subject: Array.isArray(book.subject)
+          ? book.subject[0]
+          : book.subject || "...",
+        stock: book.stock || 1,
+      }
+      const response = await createBook(processedBook)
+
+      dispatch(storeLocalData(response))
+      dispatch(updateApiData(book._version_))
+
+      setOpenModal(!openModal)
+    } catch (error) {
+      console.error("Error while creating book:", error)
+    }
   }
+
   return (
     openModal && (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
