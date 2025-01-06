@@ -154,7 +154,9 @@ function CreateForm({ open, setToCreate }) {
               </button>
               <button
                 className="p-2 text-white bg-blue-900 border border-blue-300 rounded-xl relative active:top-1 active:left-1 hover:bg-red-600"
-                onClick={() => setToCreate(!open)}
+                onClick={() => {
+                  setToCreate(!open), reset()
+                }}
               >
                 Close
               </button>
