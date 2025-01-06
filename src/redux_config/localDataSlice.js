@@ -5,6 +5,8 @@ const localDataSlice = createSlice({
   initialState: [],
   reducers: {
     setLocalData(state, action) {
+      if (!action.payload) return
+      console.log(action.payload)
       return [...action.payload]
     },
     storeLocalData(state, action) {
@@ -18,18 +20,19 @@ const localDataSlice = createSlice({
         stock,
       } = action.payload
 
+      const version = Number(_version_)
+
       const existingBookIndex = state.findIndex(
-        (book) => book._version_ === _version_
+        (book) => book._version_ === version
       )
 
       if (existingBookIndex !== -1) {
-        const updatedState = [...state]
-        updatedState[existingBookIndex].stock += 1
-        return updatedState
+        state[existingBookIndex].stock += 1
+        return
       }
 
       const newBook = {
-        _version_,
+        _version_: version,
         title,
         author_name,
         first_publish_year,
@@ -38,7 +41,7 @@ const localDataSlice = createSlice({
         stock: stock || 1,
       }
 
-      return [...state, newBook]
+      state.push(newBook)
     },
     updateLocalData(state, action) {
       const {
