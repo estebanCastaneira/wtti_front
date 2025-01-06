@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux"
 import { deleteLocalData } from "../../redux_config/localDataSlice"
 import { deleteBook } from "../../funcitons/api"
 import { setIsLoading } from "../../redux_config/uiSlice"
+import { setSuccess, setError } from "../../redux_config/uiSlice"
 
 function DeleteBookModal({ open, setToDelete, book }) {
   const dispatch = useDispatch()
@@ -9,11 +10,17 @@ function DeleteBookModal({ open, setToDelete, book }) {
   const handleOnClick = async () => {
     dispatch(setIsLoading(true))
     try {
-      const response = await deleteBook(book._version_)
+      await deleteBook(book._version_)
       dispatch(deleteLocalData(book._version_))
+      dispatch(setSuccess("The book has been successfully deleted!"))
       setToDelete(!open)
     } catch (error) {
       console.error("Error deleting book:", error)
+      dispatch(
+        setError(
+          "An error occurred while deleting the book from the inventory."
+        )
+      )
     } finally {
       dispatch(setIsLoading(false))
     }
