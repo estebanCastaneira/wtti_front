@@ -12,7 +12,9 @@ function AddBookModal({ openModal, setOpenModal, book }) {
       const processedBook = {
         _version_: book._version_,
         title: book.title,
-        author_name: book.author_name,
+        author_name: Array.isArray(book.author_name)
+          ? book.author_name[0]
+          : book.author_name || "...",
         first_publish_year: book.first_publish_year,
         publisher: Array.isArray(book.publisher)
           ? book.publisher[0]
