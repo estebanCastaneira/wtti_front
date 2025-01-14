@@ -13,7 +13,7 @@ function InformationModal() {
     if (message) {
       const timeout = setTimeout(() => {
         dispatch(clearUiState())
-      }, 3000)
+      }, 2000)
 
       return () => clearTimeout(timeout)
     }
