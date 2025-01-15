@@ -28,16 +28,18 @@ function App() {
   }, [dispatch])
 
   return (
-    <main className="bg-gradient-to-b from-blue-800 via-blue-600 to-blue-400 min-h-screen tracking-wider text-white">
+    <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/external" element={<ExternalSearch />} />
-        <Route path="/inventory" element={<Inventory />} />
-      </Routes>
-      <LoadingModal />
-      <InformationModal />
-    </main>
+      <main className="bg-gradient-to-b from-blue-800 via-blue-600 to-blue-400 min-h-screen tracking-wider text-white">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/external" element={<ExternalSearch />} />
+          <Route path="/inventory" element={<Inventory />} />
+        </Routes>
+        <LoadingModal />
+        <InformationModal />
+      </main>
+    </>
   )
 }
 

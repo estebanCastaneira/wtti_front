@@ -5,7 +5,7 @@ function Header() {
   const { pathname: currentPage } = useLocation()
 
   return (
-    <header className=" tracking-widest bg-blue-900 flex justify-center items-center p-5 ">
+    <header className="text-white tracking-widest bg-blue-900 flex justify-center items-center p-5 ">
       <nav className="container">
         <ul className="flex items-center  gap-10">
           <div>
