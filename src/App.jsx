@@ -20,7 +20,7 @@ function App() {
         const books = await getBooks()
         dispatch(setLocalData(books))
       } catch (error) {
-        console.error("Error al cargar los libros:", error)
+        console.error("Error loading books:", error)
       }
     }
 
