@@ -20,7 +20,7 @@ function Header() {
           <Anchor currentPage={currentPage} href={"/"} pageName={"Home"} />
           <Anchor
             currentPage={currentPage}
-            href={"/external"}
+            href={"/search"}
             pageName={"Search Online Books"}
           />
           <Anchor
